@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 import api from "../Services/api";
+import jwt_decode from 'jwt-decode'
 
-const authContext = createContext()
+const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
     const token = localStorage.getItem('token') || "";
@@ -15,14 +16,13 @@ export const AuthProvider = ({children}) => {
         .then((response) => {
         localStorage.setItem("token", response.data.access);
         setAuth(response.data.access);
-        setUserId(response.data.id)
+        setUserId(jwt_decode(token.id))
         history.push( "/home");
       })
-      .catch((error) => setError(true));
   };
 
   return (
-    <AuthContext.Provider value={{ token: auth, setAuth, logIn }}>
+    <AuthContext.Provider value={{ token: auth, setAuth, logIn, userId }}>
       {children}
     </AuthContext.Provider>
   );
