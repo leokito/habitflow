@@ -1,9 +1,10 @@
-
+import GlobalStyle from "./Style/GlobalStyle";
+import Routes from "./Router/Routes";
 function App() {
   return (
     <div>
-      Habbit Flow init
-      
+      <GlobalStyle />
+      <Routes />
     </div>
   );
 }
