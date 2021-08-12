@@ -13,7 +13,7 @@ export const Body = styled.body`
 
 export const Titulo = styled.h2`
   color: #f7e7dc;
-  font-family: "Alfa Slab One", cursive;
+
   font-size: 120px;
   margin-left: 70px;
   text-shadow: 2.5px 2.5px black;
@@ -24,7 +24,6 @@ export const Paragrafo = styled.p`
   width: 504px;
   color: white;
   height: 287px;
-  font-family: "Fauna One", serif;
   margin-right: 50px;
 `;
 
@@ -37,6 +36,6 @@ export const Button = styled.button`
   margin: 10px;
   color: white;
   font-size: 23px;
-  font-family: "Fauna One", serif;
+  
   cursor: pointer;
 `;
