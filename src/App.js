@@ -3,7 +3,6 @@ function App() {
   return (
     <div>
       Habbit Flow init
-      
     </div>
   );
 }
