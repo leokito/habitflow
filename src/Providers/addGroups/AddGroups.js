@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import useAuth from "../auth/Auth";
+// import useAuth from "../auth/Auth";
 import api from "../../Services/api";
 
 const NewGroup = createContext();
@@ -7,7 +7,7 @@ const NewGroup = createContext();
 export const NewGroupProvider = ({ children }) => {
   const [newGroup, setNewGroup] = useState([]);
 
-  const { token: auth } = useAuth();
+  // const { token: auth } = useAuth();
 
   const AddNewGroup = (info) => {
     if (!info) {
@@ -24,7 +24,7 @@ export const NewGroupProvider = ({ children }) => {
         },
         {
           headers: {
-            Authorization: `Bearer ${auth}`,
+            Authorization: `Bearer `,
           },
         }
       )
