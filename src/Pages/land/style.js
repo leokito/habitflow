@@ -31,7 +31,7 @@ export const Paragrafo = styled.p`
   height: 287px;
   font-family: "Fauna One", serif;
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   font-weight: 500;
 `;
 
