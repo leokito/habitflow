@@ -1,10 +1,11 @@
-import Land from "./Pages/land/Index";
+import GlobalStyle from "./Style/GlobalStyle";
+import Routes from "./Router/Routes";
 
 function App() {
   return (
     <div>
-      {/* Habbit Flow init */}
-      <Land />
+      <GlobalStyle />
+      <Routes />
     </div>
   );
 }
