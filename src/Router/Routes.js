@@ -1,5 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import Land from "../Pages/land/index";
+
 const Routes = () => {
   return (
     <Switch>
