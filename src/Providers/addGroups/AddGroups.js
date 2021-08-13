@@ -4,7 +4,7 @@ import api from "../../Services/api";
 
 const NewGroup = createContext();
 
-export const NGProvider = ({ children }) => {
+export const NewGroupProvider = ({ children }) => {
   const [newGroup, setNewGroup] = useState([{ id: 5, name: "oi" }]);
 
   const AddNewGroup = (info) => {

@@ -1,11 +1,14 @@
-import { NGProvider } from "./addGroups/AddGroups";
-import { FGProvider } from "./findGroups/FindGroups";
+import { NewGroupProvider } from "./addGroups/AddGroups";
+import { FindGroupProvider } from "./findGroups/FindGroups";
+import { FindHabitsProvider } from "./findHabitos/FindHabitos";
 
 const Providers = ({ children }) => {
   return (
-    <NGProvider>
-      <FGProvider>{children}</FGProvider>
-    </NGProvider>
+    <FindHabitsProvider>
+      <NewGroupProvider>
+        <FindGroupProvider>{children}</FindGroupProvider>
+      </NewGroupProvider>
+    </FindHabitsProvider>
   );
 };
 export default Providers;

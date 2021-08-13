@@ -2,9 +2,9 @@ import { createContext, useState, useEffect, useContext } from "react";
 import { toast } from "react-toastify";
 import api from "../../Services/api";
 
-const FGroup = createContext();
+const FindGroup = createContext();
 
-export const FGProvider = ({ children }) => {
+export const FindGroupProvider = ({ children }) => {
   const [findGroups, setFindGroups] = useState();
 
   useEffect(() => {
@@ -15,14 +15,14 @@ export const FGProvider = ({ children }) => {
   }, []);
 
   return (
-    <FGroup.Provider value={{ findGroups, setFindGroups }}>
+    <FindGroup.Provider value={{ findGroups, setFindGroups }}>
       {children}
-    </FGroup.Provider>
+    </FindGroup.Provider>
   );
 };
 
 export const useGroupList = () => {
-  const context = useContext(FGroup);
+  const context = useContext(FindGroup);
 
   const { findGroups, setFindGroups } = context;
 
