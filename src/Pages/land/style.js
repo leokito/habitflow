@@ -25,14 +25,13 @@ export const Box = styled.div`
 `;
 
 export const Paragrafo = styled.p`
-  font-size: 36px;
+  font-size: 31px;
   width: 504px;
   color: white;
   height: 287px;
   font-family: "Fauna One", serif;
   text-align: center;
   margin-bottom: 50px;
-  font-weight: 500;
 `;
 
 export const Button = styled.button`
