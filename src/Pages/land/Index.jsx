@@ -1,4 +1,5 @@
 import { Titulo, Body, Paragrafo, Button } from "./style";
+
 const Land = () => {
   return (
     <Body>
