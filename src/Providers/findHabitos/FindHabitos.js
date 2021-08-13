@@ -6,7 +6,6 @@ import axios from "axios";
 //receber tolken do usuário
 
 const findHabitsContext = createContext();
-
 export const FindHabitsProvider = ({children}) => {
     const [findHabits, setFindHabits] = useState([]);
     
@@ -14,7 +13,6 @@ export const FindHabitsProvider = ({children}) => {
         axios.get("https://kabit-api.herokuapp.com/habits/personal/")
         .then(response => setFindHabits(response.data))
         .catch(err => alert(err + "not found"))
-
     }, [])
     
     return (
@@ -23,5 +21,6 @@ export const FindHabitsProvider = ({children}) => {
         </findHabitsContext.Provider>
     )
 }
+
 
 export const useFindHabits = () => useContext(findHabitsContext)
