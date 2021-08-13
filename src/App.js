@@ -1,7 +1,12 @@
-import "./App.css";
-
+import GlobalStyle from "./Style/GlobalStyle";
+import Routes from "./Router/Routes";
 function App() {
-  return <div className="App">Habbit Flow init</div>;
+  return (
+    <div>
+      <GlobalStyle />
+      <Routes />
+    </div>
+  );
 }
 
 export default App;
