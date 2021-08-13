@@ -14,9 +14,14 @@ export const Body = styled.body`
 export const Titulo = styled.h2`
   color: #f7e7dc;
   font-family: "Alfa Slab One", cursive;
-  font-size: 120px;
-  margin-left: 70px;
+  font-size: 95px;
+  margin-left: 90px;
   text-shadow: 2.5px 2.5px black;
+`;
+
+export const Box = styled.div`
+  text-align: center;
+  margin-right: 50px;
 `;
 
 export const Paragrafo = styled.p`
@@ -25,18 +30,20 @@ export const Paragrafo = styled.p`
   color: white;
   height: 287px;
   font-family: "Fauna One", serif;
-  margin-right: 50px;
+  text-align: center;
+  margin-bottom: 70px;
+  font-weight: 500;
 `;
 
 export const Button = styled.button`
   width: 174px;
-  height: 53px;
+  height: 63px;
   background-color: #2f294e;
   border-radius: 14px;
   border: 0;
-  margin: 10px;
+  margin: 15px;
   color: white;
-  font-size: 23px;
+  font-size: 32px;
   font-family: "Fauna One", serif;
   cursor: pointer;
 `;
