@@ -1,6 +1,10 @@
+import { useHistory } from "react-router-dom";
 import { Titulo, Body, Paragrafo, Button, Box } from "./style";
 
 const Land = () => {
+
+  const history = useHistory()
+
   return (
     <Body>
       <Titulo>Habitflow</Titulo>
@@ -11,8 +15,8 @@ const Land = () => {
           ajuda de um grupo.”
         </Paragrafo>
 
-        <Button>Cadastrar</Button>
-        <Button>Entrar</Button>
+        <Button onClick={()=> history.push('/cadastro')}>Cadastrar</Button>
+        <Button onClick={()=> history.push('/login')}>Entrar</Button>
       </Box>
     </Body>
   );
