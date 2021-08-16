@@ -1,14 +1,43 @@
-import { useState, createContext, useContext } from "react";
+import { createContext, useState, useContext } from "react";
+import {useAuth} from "../auth/Auth";
 import api from "../../Services/api";
 
-const NewHabit = createContext()
+const NewHabitContext = createContext();
 
-export const HabitsProvider = () => {
-    const [newHabit, setNewHabit] = useState("")
-    
-    const addNewHabit = () => {
-        api
-        .post('/habits/personal',)
-    }
+export const AddHabitProvider = ({ children }) => {
 
-}
+  const [newHabit, setNewHabit] = useState([]);
+
+  const { token, userID } = useAuth();
+
+  const AddHabit = (data) => {
+     
+    api
+      .post(
+        "/habits/",
+        {
+          title: data.title,
+          category: data.category,
+          difficulty: data.difficulty,
+          frequency: data.frequency,
+          achieved: false,
+          how_much_achieved: 0,
+          user: userID
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => setNewHabit([...newHabit, response.data.results]))
+      .catch((err) => console.log("Deu ruim!"));
+  };
+
+  return (
+    <AddHabit.Provider value={{ newHabit, setNewHabit, AddHabit }}>
+      {children}
+    </AddHabit.Provider>
+  );
+};
+export const useAddHabit = () => useContext(NewHabitContext);
