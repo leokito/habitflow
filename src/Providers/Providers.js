@@ -8,11 +8,11 @@ const Providers = ({ children }) => {
   return (
     <AuthProvider>
         <AddHabitProvider>
-      <FindHabitsProvider>
-        <NewGroupProvider>
-          <FindGroupProvider>{children}</FindGroupProvider>
-        </NewGroupProvider>
-      </FindHabitsProvider>
+          <FindHabitsProvider>
+            <NewGroupProvider>
+              <FindGroupProvider>{children}</FindGroupProvider>
+            </NewGroupProvider>
+          </FindHabitsProvider>
       </AddHabitProvider>
     </AuthProvider>
   );

@@ -16,18 +16,18 @@ export const AddHabitProvider = ({ children }) => {
       .post(
         "/habits/",
         {
-          title: data.title,
-          category: data.category,
-          difficulty: data.difficulty,
-          frequency: data.frequency,
-          achieved: false,
-          how_much_achieved: 0,
-          user: userID
+          "title": data.title,
+          "category": data.category,
+          "difficulty": data.difficulty,
+          "frequency": data.frequency,
+          "achieved": false,
+          "how_much_achieved": 0,
+          "user": userID,
         },
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
         }
       )
       .then((response) => setNewHabit([...newHabit, response.data.results]))
@@ -35,9 +35,9 @@ export const AddHabitProvider = ({ children }) => {
   };
 
   return (
-    <AddHabit.Provider value={{ newHabit, setNewHabit, AddHabit }}>
+    <NewHabitContext.Provider value={{ newHabit, setNewHabit, AddHabit }}>
       {children}
-    </AddHabit.Provider>
+    </NewHabitContext.Provider>
   );
 };
 export const useAddHabit = () => useContext(NewHabitContext);

@@ -43,7 +43,6 @@ const FormLogin = () => {
     // return <Redirect to="home" />;
   }
   // };
-  
   return (
     <form onSubmit={handleSubmit(handleForm)}>
       <S.ContainerForm>
@@ -65,9 +64,8 @@ const FormLogin = () => {
           error={!!errors.password}
           helperText={errors.password?.message}
         />
-        <Button onClick={() => history.push("/home")} type="submit" variant="contained" color="primary"
-        >
-        Entrar
+        <Button type="submit" variant="contained" color="primary">
+          Entrar
         </Button>
         <p>
           Não possui uma conta? <Link to="/cadastro">Click aqui</Link>.

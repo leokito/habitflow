@@ -27,7 +27,7 @@ export const AuthProvider = ({children}) => {
         setUserID(objTest.user_id)
         localStorage.setItem('@Habitflow: userID', objTest.user_id)
         setAuth(access);
-        history.push( "/home");
+        history.push( "/testpage");
         console.log(objTest.user_id)
       })
       
