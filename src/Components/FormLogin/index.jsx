@@ -4,10 +4,9 @@ import * as yup from "yup";
 import { Button, TextField } from "@material-ui/core";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import * as S from "./styles";
-// import { toast } from "react-toastify";
-// import api from "../../Services/api";
 import { useAuth } from "../../Providers/auth/Auth";
 import { useState } from "react";
+
 const FormLogin = () => {
   const [error, setError] = useState(false)
   const history = useHistory()
@@ -28,7 +27,7 @@ const FormLogin = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const { signIn } = useAuth();
-  
+
   const handleForm = (data) => {
     // const user = { username, password };
     // api
@@ -44,6 +43,7 @@ const FormLogin = () => {
     // return <Redirect to="home" />;
   }
   // };
+  
   return (
     <form onSubmit={handleSubmit(handleForm)}>
       <S.ContainerForm>
@@ -65,8 +65,9 @@ const FormLogin = () => {
           error={!!errors.password}
           helperText={errors.password?.message}
         />
-        <Button type="submit" variant="contained" color="primary">
-          Entrar
+        <Button onClick={() => history.push("/home")} type="submit" variant="contained" color="primary"
+        >
+        Entrar
         </Button>
         <p>
           Não possui uma conta? <Link to="/cadastro">Click aqui</Link>.
