@@ -1,4 +1,4 @@
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -42,59 +42,64 @@ const FormRegister = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <S.ContainerForm>
-        <h1>Crie sua conta</h1>
-        <TextField
-          label="Nome do usuário"
-          variant="outlined"
-          size="small"
-          margin="normal"
-          {...register("username")}
-          error={!!errors.username}
-          helperText={errors.username?.message}
-        />
+    <S.ContainerPage>
+      <S.ContainerPurple>
+        <h1>Habitflow</h1>
+      </S.ContainerPurple>
+      <form onSubmit={handleSubmit(handleForm)}>
+        <S.ContainerGradiente>
+          <S.ContainerForm>
+            <h1>Crie sua conta</h1>
+            <TextField
+              label="Nome do usuário"
+              variant="outlined"
+              size="small"
+              margin="normal"
+              {...register("username")}
+              error={!!errors.username}
+              helperText={errors.username?.message}
+            />
 
-        <TextField
-          label="Digite seu e-mail"
-          variant="outlined"
-          size="small"
-          margin="normal"
-          {...register("email")}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-        />
+            <TextField
+              label="Digite seu e-mail"
+              variant="outlined"
+              size="small"
+              margin="normal"
+              {...register("email")}
+              error={!!errors.email}
+              helperText={errors.email?.message}
+            />
 
-        <TextField
-          label="Digite sua senha"
-          variant="outlined"
-          size="small"
-          type="password"
-          margin="normal"
-          {...register("password")}
-          error={!!errors.password}
-          helperText={errors.password?.message}
-        />
-        <TextField
-          label="Confirme sua senha"
-          variant="outlined"
-          size="small"
-          color="primary"
-          type="password"
-          margin="normal"
-          {...register("passwordConfirm")}
-          error={!!errors.passwordConfirm}
-          helperText={errors.passwordConfirm?.message}
-        />
+            <TextField
+              label="Digite sua senha"
+              variant="outlined"
+              size="small"
+              type="password"
+              margin="normal"
+              {...register("password")}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            <TextField
+              label="Confirme sua senha"
+              variant="outlined"
+              size="small"
+              color="primary"
+              type="password"
+              margin="normal"
+              {...register("passwordConfirm")}
+              error={!!errors.passwordConfirm}
+              helperText={errors.passwordConfirm?.message}
+            />
 
-        <Button type="submit" variant="contained" color="primary">
-          Cadastre-se
-        </Button>
-        <p>
-          Já possui uma conta? <Link to="/login">Click aqui</Link>.
-        </p>
-      </S.ContainerForm>
-    </form>
+            <S.Button type="submit">Cadastre-se</S.Button>
+            <p>
+              Já possui uma conta? <Link to="/login">Click aqui</Link>.
+            </p>
+          </S.ContainerForm>
+        </S.ContainerGradiente>
+      </form>
+    </S.ContainerPage>
   );
 };
 
