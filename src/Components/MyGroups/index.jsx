@@ -1,8 +1,9 @@
 import { Collapse, Card, Tooltip, Button } from "antd";
 import { useMyGroup } from "../../Providers/myGroups/MyGroups";
-import { EditOutlined } from "@ant-design/icons";
+import { EditOutlined, FormOutlined } from "@ant-design/icons";
 import { Container } from "./style";
 import { useEditGroup } from "../../Providers/editGroup/EditGroup";
+import { useAddNewGoal } from "../../Providers/addGoal/AddGoal";
 
 const { Panel } = Collapse;
 
@@ -13,9 +14,11 @@ function callback(key) {
 export const MyGroupCard = () => {
   const { myList } = useMyGroup();
   const { setEditGroup } = useEditGroup();
+  const { setNewGoal } = useAddNewGoal();
 
   const handleClick = (id) => {
-    setEditGroup((prevState) => [...prevState, id]);
+    setEditGroup(id);
+    setNewGoal(id);
   };
 
   return (
@@ -31,6 +34,14 @@ export const MyGroupCard = () => {
                   shape="circle"
                   onClick={() => handleClick(elem.id)}
                   icon={<EditOutlined />}
+                  size="large"
+                />
+              </Tooltip>
+              <Tooltip title="Adicionar Metas">
+                <Button
+                  shape="circle"
+                  onClick={() => handleClick(elem.id)}
+                  icon={<FormOutlined />}
                   size="large"
                 />
               </Tooltip>
