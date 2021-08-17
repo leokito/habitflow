@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode'
 const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
-    const token = localStorage.getItem('token') || "";
+    const token = localStorage.getItem('@Habitflow: token') || "";
     const [auth, setAuth] = useState(token)
     const [userID, setUserID] = useState(() => {
       return(

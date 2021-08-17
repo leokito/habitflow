@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import HabitForm from '../Addhabit';
 import { useState } from 'react';
+import { MyHabbitCard } from '../MyHabbits';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -69,7 +70,7 @@ if(newHabit === false) {
       </Col>
       <Col span={6}>
         <Card title="Meus Hábitos" bordered={false}>
-        Lugar do "botão" do ver hábito
+        <MyHabbitCard/>
         </Card>
       </Col>
       <Col span={6}>
