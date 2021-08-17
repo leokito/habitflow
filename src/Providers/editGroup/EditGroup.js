@@ -1,14 +1,14 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import api from "../../Services/api";
+import { useAuth } from "../auth/Auth";
 
 const EditGroup = createContext();
 
 export const EditionProvider = ({ children }) => {
-  const [token] = useState(localStorage.getItem("token") || "");
+  const { token } = useAuth();
 
   const [editGroup, setEditGroup] = useState([]);
-  console.log(editGroup);
 
   const HandleEditGroup = (info) => {
     api

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
-
+import { useAuth } from "../auth/Auth";
+import { toast } from "react-toastify";
 import api from "../../Services/api";
 
 const FindGroup = createContext();
@@ -7,11 +8,11 @@ const FindGroup = createContext();
 export const FindGroupProvider = ({ children }) => {
   const [groupsList, setGroupsList] = useState();
 
-  const [token] = useState(localStorage.getItem("token") || "");
+  const { token } = useAuth();
 
   useEffect(() => {
     api
-      .get(`/groups/?page=2`, "", {
+      .get(`/groups/?page=1`, "", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -29,7 +30,7 @@ export const FindGroupProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => console.log(response))
+      .then((response) => toast.default("Grupo adicionado!"))
       .catch((err) => console.log(err));
   };
   return (

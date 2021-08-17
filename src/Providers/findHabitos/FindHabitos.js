@@ -7,8 +7,6 @@ const findHabitsContext = createContext();
 export const FindHabitsProvider = ({ children }) => {
   const [findHabits, setFindHabits] = useState([]);
   const { token } = useAuth();
-
-  console.log(token);
   useEffect(() => {
     axios
       .get("https://kabit-api.herokuapp.com/habits/personal/", {

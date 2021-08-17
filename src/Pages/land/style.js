@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import fundo from "../../img/fundo.svg";
 
-export const Body = styled.body`
+export const Container = styled.body`
   display: flex;
   height: 100vh;
   align-items: center;
