@@ -1,12 +1,11 @@
 import { useHistory } from "react-router-dom";
-import { Titulo, Body, Paragrafo, Button, Box } from "./style";
+import { Titulo, Container, Paragrafo, Button, Box } from "./style";
 
 const Land = () => {
-
-  const history = useHistory()
+  const history = useHistory();
 
   return (
-    <Body>
+    <Container>
       <Titulo>Habitflow</Titulo>
       <Box>
         <Paragrafo>
@@ -15,10 +14,10 @@ const Land = () => {
           ajuda de um grupo.”
         </Paragrafo>
 
-        <Button onClick={()=> history.push('/cadastro')}>Cadastrar</Button>
-        <Button onClick={()=> history.push('/login')}>Entrar</Button>
+        <Button onClick={() => history.push("/cadastro")}>Cadastrar</Button>
+        <Button onClick={() => history.push("/login")}>Entrar</Button>
       </Box>
-    </Body>
+    </Container>
   );
 };
 

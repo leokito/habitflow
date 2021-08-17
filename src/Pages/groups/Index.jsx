@@ -6,7 +6,7 @@ import { EditGroupCard } from "../../Components/EditGroup";
 
 const { Content } = Layout;
 
-export const GroupsPage = () => {
+const GroupsPage = () => {
   return (
     <Layout style={{ padding: "0 24px 24px" }}>
       <Content
@@ -25,3 +25,5 @@ export const GroupsPage = () => {
     </Layout>
   );
 };
+
+export default GroupsPage;
