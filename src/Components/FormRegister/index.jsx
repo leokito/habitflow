@@ -6,8 +6,11 @@ import * as yup from "yup";
 import * as S from "./styles";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 const FormRegister = () => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
     email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
@@ -36,7 +39,7 @@ const FormRegister = () => {
       .post("https://kabit-api.herokuapp.com/users/", user)
       .then((res) => {
         toast.success("Sucesso ao criar a conta");
-        <Redirect to="login" />;
+        history.push("/login");
       })
       .catch((err) => toast.error("Erro ao criar a conta"));
   };
@@ -54,7 +57,6 @@ const FormRegister = () => {
               label="Nome do usuário"
               variant="outlined"
               size="small"
-              margin="normal"
               {...register("username")}
               error={!!errors.username}
               helperText={errors.username?.message}
@@ -64,7 +66,6 @@ const FormRegister = () => {
               label="Digite seu e-mail"
               variant="outlined"
               size="small"
-              margin="normal"
               {...register("email")}
               error={!!errors.email}
               helperText={errors.email?.message}
@@ -75,7 +76,6 @@ const FormRegister = () => {
               variant="outlined"
               size="small"
               type="password"
-              margin="normal"
               {...register("password")}
               error={!!errors.password}
               helperText={errors.password?.message}
@@ -86,7 +86,6 @@ const FormRegister = () => {
               size="small"
               color="primary"
               type="password"
-              margin="normal"
               {...register("passwordConfirm")}
               error={!!errors.passwordConfirm}
               helperText={errors.passwordConfirm?.message}

@@ -44,6 +44,9 @@ const FormLogin = () => {
 
   return (
     <S.ContainerPage>
+      <S.ContainerPurple>
+        <h1>Habitflow</h1>
+      </S.ContainerPurple>
       <form onSubmit={handleSubmit(handleForm)}>
         <S.ContainerGradiente>
           <S.ContainerForm>
@@ -79,9 +82,6 @@ const FormLogin = () => {
           </S.ContainerForm>
         </S.ContainerGradiente>
       </form>
-      <S.ContainerPurple>
-        <h1>Habitflow</h1>
-      </S.ContainerPurple>
     </S.ContainerPage>
   );
 };
