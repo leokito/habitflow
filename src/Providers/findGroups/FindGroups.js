@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import { toast } from "react-toastify";
 
 import api from "../../Services/api";
 
@@ -8,11 +7,11 @@ const FindGroup = createContext();
 export const FindGroupProvider = ({ children }) => {
   const [groupsList, setGroupsList] = useState();
 
-  const token = localStorage.getItem("@Habitflow: token") || "";
+  const [token] = useState(localStorage.getItem("token") || "");
 
   useEffect(() => {
     api
-      .get(`/groups/?page=1`, "", {
+      .get(`/groups/?page=2`, "", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -30,7 +29,7 @@ export const FindGroupProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => toast.default("Grupo adicionado!"))
+      .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
   return (
