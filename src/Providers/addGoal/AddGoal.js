@@ -5,7 +5,7 @@ import api from "../../Services/api";
 const NewGoal = createContext();
 
 export const NewGoalProvider = ({ children }) => {
-  // const [token] = useState(localStorage.getItem("token") || "");
+  const token = localStorage.getItem("@Habitflow: token") || "";
   const [newGoal, setNewGoal] = useState([]);
   const AddNewGoal = (data) => {
     api
@@ -20,12 +20,13 @@ export const NewGoalProvider = ({ children }) => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI5NTgzMzIyLCJqdGkiOiIzNTkxMzJmMmJlM2M0NWFiODRhYzI2MjMwZDVkNjQxYiIsInVzZXJfaWQiOjE5NjF9.x5_KZECg5bX3MA4iVB_0B4rUBQ85fLGAR6VWRP_Tk5s`,
+            Authorization: `Bearer ${token}`,
           },
         }
       )
       .then((response) => toast.success("Meta adicionada com sucesso!"))
       .catch((err) => console.log(err));
+    console.log(data);
   };
 
   return (

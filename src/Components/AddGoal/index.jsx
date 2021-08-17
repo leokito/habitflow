@@ -1,5 +1,4 @@
-import { Card, Input, Button, Form, InputNumber, Select } from "antd";
-import { Option } from "antd/lib/mentions";
+import { Card, Input, Button, Form, Select } from "antd";
 import { useAddNewGoal } from "../../Providers/addGoal/AddGoal";
 import { Container } from "./style";
 
@@ -21,18 +20,13 @@ export const AddGoalCard = () => {
           </Form.Item>
           <Form.Item name="difficulty">
             <Select placeholder="Dificuldade">
-              <Option value="Fácil">Fácil</Option>
-              <Option value="Médio">Médio</Option>
-              <Option value="Difícil">Difícil</Option>
+              <Select.Option value="Fácil">Fácil</Select.Option>
+              <Select.Option value="Médio">Médio</Select.Option>
+              <Select.Option value="Difícil">Difícil</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item name="how_much_achieved">
-            <InputNumber
-              min={0}
-              max={10}
-              defaultValue={0}
-              placeholder="Quanto você já atingiu dessa meta de 0 a 100"
-            />
+            <Input placeholder="Quanto você já atingiu dessa meta de 0 a 100" />
           </Form.Item>
           <Button type="primary" htmlType="submit">
             Salvar

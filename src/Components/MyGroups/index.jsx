@@ -4,18 +4,21 @@ import { EditOutlined, FormOutlined } from "@ant-design/icons";
 import { Container } from "./style";
 import { useEditGroup } from "../../Providers/editGroup/EditGroup";
 import { useAddNewGoal } from "../../Providers/addGoal/AddGoal";
+import { GoalsList } from "../MyGoals";
+import { useMyGoals } from "../../Providers/myGoals/MyGoals";
 
 const { Panel } = Collapse;
 
-function callback(key) {
-  console.log(key);
-}
-
 export const MyGroupCard = () => {
+  const { getGroupGoal } = useMyGoals();
   const { myList } = useMyGroup();
   const { setEditGroup } = useEditGroup();
   const { setNewGoal } = useAddNewGoal();
 
+  function callback(key) {
+    getGroupGoal(key);
+    console.log(key);
+  }
   const handleClick = (id) => {
     setEditGroup(id);
     setNewGoal(id);
@@ -45,6 +48,7 @@ export const MyGroupCard = () => {
                   size="large"
                 />
               </Tooltip>
+              <GoalsList />
             </Panel>
           ))}
         </Collapse>

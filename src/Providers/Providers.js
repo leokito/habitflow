@@ -5,6 +5,7 @@ import { AuthProvider } from "./auth/Auth";
 import { EditionProvider } from "./editGroup/EditGroup";
 import { FindGroupProvider } from "./findGroups/FindGroups";
 import { FindHabitsProvider } from "./findHabitos/FindHabitos";
+import { MyGoalsProvider } from "./myGoals/MyGoals";
 import { MyGroupProvider } from "./myGroups/MyGroups";
 
 const Providers = ({ children }) => {
@@ -16,7 +17,9 @@ const Providers = ({ children }) => {
             <FindGroupProvider>
               <MyGroupProvider>
                 <EditionProvider>
-                  <NewGoalProvider>{children}</NewGoalProvider>
+                  <NewGoalProvider>
+                    <MyGoalsProvider>{children}</MyGoalsProvider>
+                  </NewGoalProvider>
                 </EditionProvider>
               </MyGroupProvider>
             </FindGroupProvider>

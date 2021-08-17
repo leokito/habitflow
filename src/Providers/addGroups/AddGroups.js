@@ -1,11 +1,11 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { toast } from "react-toastify";
 import api from "../../Services/api";
 
 const NewGroup = createContext();
 
 export const NewGroupProvider = ({ children }) => {
-  const [token] = useState(localStorage.getItem("token") || "");
+  const token = localStorage.getItem("@Habitflow: token") || "";
 
   const AddNewGroup = (data) => {
     if (!data) {
