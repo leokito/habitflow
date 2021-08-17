@@ -3,6 +3,7 @@ import { FindGroupCard } from "../../Components/FindGroup";
 import { MyGroupCard } from "../../Components/MyGroups";
 import { Layout } from "antd";
 import { EditGroupCard } from "../../Components/EditGroup";
+import { AddGoalCard } from "../../Components/AddGoal";
 
 const { Content } = Layout;
 
@@ -17,6 +18,7 @@ export const GroupsPage = () => {
           minHeight: 280,
         }}
       >
+        <AddGoalCard />
         <EditGroupCard />
         <AddGroupCard />
         <FindGroupCard />

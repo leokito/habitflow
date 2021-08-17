@@ -4,13 +4,13 @@ import api from "../../Services/api";
 const MyGroup = createContext();
 
 export const MyGroupProvider = ({ children }) => {
-  const [token] = useState(localStorage.getItem("token") || "");
+  const token = localStorage.getItem("@Habitflow: token") || "";
   const [myList, setMyList] = useState([]);
   useEffect(() => {
     api
       .get("/groups/subscriptions/", {
         headers: {
-          Authorization: `Bearer Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => setMyList(response.data))
