@@ -5,6 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 // import { useState } from "react";
 import { useAuth } from "../../Providers/auth/Auth";
 import { useAddHabit } from '../../Providers/addHabitos/AddHabitos';
+import { Container, Form, Input, SContainer, Select } from './styles';
+import { Button } from '@material-ui/core';
 
 const HabitForm = () => {
 
@@ -27,37 +29,41 @@ const {userID} = useAuth()
            console.log(userID)
            console.log(newData)
         }
-    
 
     return (
-        <div className="container">
-        <form className="form" onSubmit={handleSubmit(handleForm)}>
+        <Container>
+        <Form onSubmit={handleSubmit(handleForm)}>
         <div className="formDiv">
-        <h2>Formulário de Teste</h2>
-        <input className="formInput" type="text" placeholder="Titulo"  {...register("title")} />
+        <Input type="text" placeholder="Titulo"  {...register("title")} />
         </div>
         <div className="formDiv">
-        <input className="formInput" type="text" placeholder="Categoria"  {...register("category")} />
+        <Input className="formInput" type="text" placeholder="Categoria"  {...register("category")} />
         </div>
-        <div className="selectDiv">
+        <SContainer>
         <label for="difficult">Dificuldade:</label>
-        <select className="classe" name="difficult" {...register('difficulty') }> 
+        <Select className="classe" name="difficult" {...register('difficulty') }> 
             <option value="Muito Fácil">Muito Fácil</option>
             <option value="Normal">Normal</option>
             <option value="Dificil">Difícil</option>
             <option value="Muito Difícil">Muito Difícil</option>
-        </select>
-        </div>
+        </Select>
+        </SContainer>
         <div className="formDiv">
-        <input className="formInput"  type="string" placeholder="Frequência"  {...register("frequency")} />
+        <Input className="formInput"  type="string" placeholder="Frequência"  {...register("frequency")} />
         </div>
         <div>
         </div>
         <div className="btnDiv" >
-            <button className="submitBtn" type="submit" >Adicionar</button>
+            {/* <button className="submitBtn" type="submit" >Adicionar</button> */}
+            <Button 
+            type="submit" 
+            variant="contained"
+            size='small'
+            color='primary'
+            >Adicionar</Button>
         </div>
-        </form>
-        </div>
+        </Form>
+        </Container>
     )
 }
 
