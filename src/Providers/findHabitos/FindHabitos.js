@@ -1,6 +1,7 @@
 import { useEffect, useState, createContext, useContext } from "react";
 import axios from "axios";
 import { useAuth } from "../auth/Auth";
+import { useAddHabit } from "../addHabitos/AddHabitos";
 
 const findHabitsContext = createContext();
 

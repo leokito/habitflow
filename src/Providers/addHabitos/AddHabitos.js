@@ -28,7 +28,9 @@ export const AddHabitProvider = ({ children }) => {
             },
         }
       )
-      .then((response) => setNewHabit([...newHabit, response.data.results]))
+      .then((response) => setNewHabit([...newHabit, response.data.results]) (
+        console.log(response.data)
+      ))
       .catch((err) => console.log("Deu ruim!"));
   };
 

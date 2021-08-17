@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import HabitForm from '../Addhabit';
 import { useState } from 'react';
 import { AddGroupCard } from '../AddGroup';
+import MyHabbitCard from '../MyHabbits';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -79,7 +80,7 @@ if(newHabit === false && newGroup === false ) {
       </Col>
       <Col span={6}>
         <Card title="Meus Hábitos" bordered={false}>
-        Lugar do "botão" do ver hábito
+        <MyHabbitCard />
         </Card>
       </Col>
       <Col span={6}>
