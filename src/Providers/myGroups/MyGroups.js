@@ -10,14 +10,12 @@ export const MyGroupProvider = ({ children }) => {
     api
       .get("/groups/subscriptions/", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer Bearer ${token}`,
         },
       })
       .then((response) => setMyList(response.data))
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(myList);
 
   return <MyGroup.Provider value={{ myList }}>{children}</MyGroup.Provider>;
 };

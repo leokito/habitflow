@@ -32,8 +32,6 @@ export const FindGroupProvider = ({ children }) => {
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
-
-  console.log(groupsList);
   return (
     <FindGroup.Provider value={{ groupsList, Subscribe }}>
       {children}
