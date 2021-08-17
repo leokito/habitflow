@@ -4,8 +4,10 @@ import api from "../../Services/api";
 import { useAuth } from "../../Providers/auth/Auth";
 
 export const MyHabbitCard = () => {
+
     const {findHabits} = useFindHabits();
     const {token} = useAuth();
+    console.log(findHabits)
 
     const handlerDelete = (habitId) => {
         api.delete(
@@ -15,9 +17,7 @@ export const MyHabbitCard = () => {
                     Authorization: `Bearer ${token}`
                 },
             }
-        ).then(()=> {
-            setTimeout(()=> 300);
-            toast.success("Hábito Removido");
+        ).then(()=> { toast.success("Hábito Removido");
         });
     }
 
@@ -36,3 +36,5 @@ export const MyHabbitCard = () => {
         </div>
     )
 }
+
+export default MyHabbitCard

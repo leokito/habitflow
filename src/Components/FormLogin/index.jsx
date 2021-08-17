@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { TextField } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import * as S from "./styles";
 import { useAuth } from "../../Providers/auth/Auth";
