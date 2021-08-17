@@ -7,30 +7,25 @@ const EditGroup = createContext();
 export const EditionProvider = ({ children }) => {
   const [token] = useState(localStorage.getItem("token") || "");
 
-  const HandleEditGroup = (data) => {
+  const [editGroup, setEditGroup] = useState([]);
+  console.log(editGroup);
+
+  const HandleEditGroup = (info) => {
     api
-      .post(
-        `/groups/${data.id}`,
-        {
-          name: data.name,
-          description: data.description,
-          category: data.category,
+      .patch(`/groups/${editGroup}/`, info, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      })
       .then((response) => toast.success("Grupo editado com sucesso"))
       .catch((err) => console.log(err));
   };
   return (
-    <EditGroup.Provider value={{ HandleEditGroup }}>
+    <EditGroup.Provider value={{ HandleEditGroup, editGroup, setEditGroup }}>
       {children}
     </EditGroup.Provider>
   );
 };
 
-const useEditGroup = () => useContext(EditGroup);
+export const useEditGroup = () => useContext(EditGroup);

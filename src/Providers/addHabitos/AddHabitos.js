@@ -1,17 +1,15 @@
 import { createContext, useState, useContext } from "react";
-import {useAuth} from "../auth/Auth";
+import { useAuth } from "../auth/Auth";
 import api from "../../Services/api";
 
 const NewHabitContext = createContext();
 
 export const AddHabitProvider = ({ children }) => {
-
   const [newHabit, setNewHabit] = useState([]);
 
   const { token, userID } = useAuth();
 
   const AddHabit = (data) => {
-     
     api
       .post(
         "/habits/",
@@ -22,7 +20,7 @@ export const AddHabitProvider = ({ children }) => {
           frequency: data.frequency,
           achieved: false,
           how_much_achieved: 0,
-          user: userID
+          user: userID,
         },
         {
           headers: {
@@ -35,9 +33,9 @@ export const AddHabitProvider = ({ children }) => {
   };
 
   return (
-    <AddHabit.Provider value={{ newHabit, setNewHabit, AddHabit }}>
+    <NewHabitContext.Provider value={{ newHabit, setNewHabit, AddHabit }}>
       {children}
-    </AddHabit.Provider>
+    </NewHabitContext.Provider>
   );
 };
 export const useAddHabit = () => useContext(NewHabitContext);
