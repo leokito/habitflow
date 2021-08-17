@@ -42,34 +42,46 @@ const FormLogin = () => {
   };
   // };
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <S.ContainerForm>
-        <h1>Acesse sua conta</h1>
-        <TextField
-          label="Digite seu nome"
-          variant="outlined"
-          size="small"
-          {...register("username")}
-          error={!!errors.username}
-          helperText={errors.username?.message}
-        />
-        <TextField
-          label="Digite sua senha"
-          variant="outlined"
-          size="small"
-          type="password"
-          {...register("password")}
-          error={!!errors.password}
-          helperText={errors.password?.message}
-        />
-        <Button type="submit" variant="contained" color="primary">
-          Entrar
-        </Button>
-        <p>
-          Não possui uma conta? <Link to="/cadastro">Click aqui</Link>.
-        </p>
-      </S.ContainerForm>
-    </form>
+    <S.ContainerPage>
+      <S.ContainerPurple>
+        <h1>Habitflow</h1>
+      </S.ContainerPurple>
+      <form onSubmit={handleSubmit(handleForm)}>
+        <S.ContainerGradiente>
+          <S.ContainerForm>
+            <h1>Acesse sua conta</h1>
+            <TextField
+              label="Digite seu nome"
+              variant="outlined"
+              size="small"
+              {...register("username")}
+              error={!!errors.username}
+              helperText={errors.username?.message}
+            />
+            <TextField
+              label="Digite sua senha"
+              variant="outlined"
+              size="small"
+              type="password"
+              {...register("password")}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            <S.Button
+              onClick={() => history.push("/home")}
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
+              Entrar
+            </S.Button>
+            <p>
+              Não possui uma conta? <Link to="/cadastro">Click aqui</Link>.
+            </p>
+          </S.ContainerForm>
+        </S.ContainerGradiente>
+      </form>
+    </S.ContainerPage>
   );
 };
 export default FormLogin;
