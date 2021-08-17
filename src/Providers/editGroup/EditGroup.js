@@ -5,7 +5,7 @@ import api from "../../Services/api";
 const EditGroup = createContext();
 
 export const EditionProvider = ({ children }) => {
-  const token = localStorage.getItem("@Habitflow: token") || "";
+  const [token] = useState(localStorage.getItem("token") || "");
 
   const [editGroup, setEditGroup] = useState([]);
   console.log(editGroup);
