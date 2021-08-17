@@ -38,7 +38,11 @@ if(newHabit === false && newGroup === false ) {
             onClick={()=> {
               setNewHabit(true)
               setNewGroup(false)}}>Novo Hábito</Menu.Item>
-            <Menu.Item key="2">Meus Hábitos</Menu.Item>
+            <Menu.Item key="2"
+            onClick={()=> {
+              setNewHabit(false)
+              setNewGroup(false)
+              }}>Meus Hábitos</Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="Grupos">
             <Menu.Item key="5"
@@ -207,8 +211,13 @@ if(newHabit === false && newGroup === false ) {
             <Menu.Item key="1" 
              onClick={()=> {
               setNewGroup(false)
-              setNewHabit(true)}}>Novo Hábito</Menu.Item>
-            <Menu.Item key="2" onClick={()=> setNewHabit(false)}>Meus Hábitos</Menu.Item>
+              setNewHabit(true)}}
+              >Novo Hábito</Menu.Item>
+            <Menu.Item key="2" 
+          onClick={()=> {
+            setNewHabit(false)
+            setNewGroup(false)
+            }}>Meus Hábitos</Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="Grupos">
             <Menu.Item key="5" 
@@ -223,7 +232,6 @@ if(newHabit === false && newGroup === false ) {
         </Menu>
       </Sider>
 
-      
       <Layout style={{ padding: '0 24px 24px' }}>
         
         <Content
