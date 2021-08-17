@@ -1,24 +1,22 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import * as S from "./styles";
 import { useAuth } from "../../Providers/auth/Auth";
 import { useState } from "react";
 
 const FormLogin = () => {
-  const [error, setError] = useState(false)
-  const history = useHistory()
+  const [error, setError] = useState(false);
+  const history = useHistory();
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
-    password: yup
-      .string()
-      .required("Campo obrigatório")
-      // .matches(
-      //   /^((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
-      //   "Senha deve conter ao menos uma letra maiúscula, uma minúscula, um número e um caracter especial."
-      // ),
+    password: yup.string().required("Campo obrigatório"),
+    // .matches(
+    //   /^((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+    //   "Senha deve conter ao menos uma letra maiúscula, uma minúscula, um número e um caracter especial."
+    // ),
   });
   const {
     register,
@@ -39,9 +37,9 @@ const FormLogin = () => {
     // localStorage.setItem("token", token);
     // localStorage.setItem("token", res.data.access);
     // console.log(res.data.access);
-    signIn(data,setError, history)
+    signIn(data, setError, history);
     // return <Redirect to="home" />;
-  }
+  };
   // };
   return (
     <form onSubmit={handleSubmit(handleForm)}>

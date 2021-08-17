@@ -1,41 +1,29 @@
-import { createContext, useState, useContext } from "react";
-// import useAuth from "../auth/Auth";
+import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import api from "../../Services/api";
 
 const NewGroup = createContext();
 
 export const NewGroupProvider = ({ children }) => {
-  const [newGroup, setNewGroup] = useState([]);
+  const [token] = useState(localStorage.getItem("token") || "");
 
-  // const { token: auth } = useAuth();
-
-  const AddNewGroup = (info) => {
-    if (!info) {
-      return console.log("Adicione novo grupo!");
+  const AddNewGroup = (data) => {
+    if (!data) {
+      return toast.error("Preencha o formulário");
     }
-
     api
-      .post(
-        "/groups/",
-        {
-          name: info.name,
-          description: info.description,
-          category: info.category,
+      .post("/groups/", data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI5NTgzMzIyLCJqdGkiOiIzNTkxMzJmMmJlM2M0NWFiODRhYzI2MjMwZDVkNjQxYiIsInVzZXJfaWQiOjE5NjF9.x5_KZECg5bX3MA4iVB_0B4rUBQ85fLGAR6VWRP_Tk5s`,
         },
-        {
-          headers: {
-            Authorization: `Bearer `,
-          },
-        }
-      )
-      .then((response) => setNewGroup([...newGroup, response.data.results]))
-      .catch((err) => console.log("Grupo já existe!"));
+      })
+      .then((response) => toast.success("Grupo adicionado com sucesso"))
+      .catch((err) => console.log(err));
   };
 
   return (
-    <NewGroup.Provider value={{ newGroup, setNewGroup, AddNewGroup }}>
-      {children}
-    </NewGroup.Provider>
+    <NewGroup.Provider value={{ AddNewGroup }}>{children}</NewGroup.Provider>
   );
 };
 export const useAddNewGroup = () => useContext(NewGroup);

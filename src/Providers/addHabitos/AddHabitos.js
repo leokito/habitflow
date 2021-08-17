@@ -1,17 +1,15 @@
 import { createContext, useState, useContext } from "react";
-import {useAuth} from "../auth/Auth";
+import { useAuth } from "../auth/Auth";
 import api from "../../Services/api";
 
 const NewHabitContext = createContext();
 
 export const AddHabitProvider = ({ children }) => {
-
   const [newHabit, setNewHabit] = useState([]);
 
   const { token, userID } = useAuth();
 
   const AddHabit = (data) => {
-     
     api
       .post(
         "/habits/",
