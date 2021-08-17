@@ -1,18 +1,20 @@
 import { Card, Input, Button, Form } from "antd";
-import { useAddNewGroup } from "../../Providers/addGroups/AddGroups";
+import { useEditGroup } from "../../Providers/editGroup/EditGroup";
 import { Container } from "./style";
 const { TextArea } = Input;
-export const AddGroupCard = () => {
-  const { AddNewGroup } = useAddNewGroup();
+
+export const EditGroupCard = () => {
+  const { HandleEditGroup } = useEditGroup();
 
   const [form] = Form.useForm();
+
   const onFinish = (values) => {
-    AddNewGroup(values);
+    HandleEditGroup(values);
   };
 
   return (
     <Container>
-      <Card title="Crie um Grupo">
+      <Card title="Editar Grupo">
         <Form form={form} name="control-hooks" onFinish={onFinish}>
           <Form.Item name="name">
             <Input placeholder="Nome do grupo" />
@@ -24,7 +26,7 @@ export const AddGroupCard = () => {
             <TextArea placeholder="Descrição" />
           </Form.Item>
           <Button type="primary" htmlType="submit">
-            Enviar
+            Salvar
           </Button>
         </Form>
       </Card>
