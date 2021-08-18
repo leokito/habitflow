@@ -3,22 +3,25 @@ import { useFindHabits } from "../../Providers/findHabitos/FindHabitos";
 import api from "../../Services/api";
 import { useAuth } from "../../Providers/auth/Auth";
 
-export const MyHabbitCard = () => {
 
+export const MyHabbitCard = () => {
     const {findHabits} = useFindHabits();
     const {token} = useAuth();
+    
     console.log(findHabits)
 
-    const handlerDelete = (habitId) => {
+    const handlerDelete = (id) => {
         api.delete(
-            `/habits/${habitId}`,
+            `/habits/${id}/`,
             {
                 headers:{
                     Authorization: `Bearer ${token}`
                 },
             }
-        ).then(()=> { toast.success("Hábito Removido");
+        ).then(()=> {
+            toast.success("Hábito Removido");
         });
+        console.log(id)
     }
 
     return (
@@ -29,7 +32,7 @@ export const MyHabbitCard = () => {
                     <p>category: {elem.category}</p>
                     <p>difficulty: {elem.difficulty}</p>
                     <p>frequency: {elem.frequency}</p>
-                    <button onCLick={() => handlerDelete}>Excluir Hábito</button>
+                    <button onClick={() => handlerDelete(elem.id)}>Excluir Hábito</button>
                 </div>
                
             ))}

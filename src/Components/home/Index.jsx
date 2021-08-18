@@ -8,6 +8,7 @@ import { AddGroupCard } from "../AddGroup";
 import { MyGroupCard } from "../MyGroups";
 import { EditGroupCard } from "../EditGroup";
 import { AddGoalCard } from "../AddGoal";
+import MyHabbitCard from "../MyHabbits";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -44,15 +45,7 @@ const Home = () => {
                 >
                   Novo Hábito
                 </Menu.Item>
-                <Menu.Item
-                  key="2"
-                  onClick={() => {
-                    setNewHabit(false);
-                    setNewGroup(false);
-                  }}
-                >
-                  Meus Hábitos
-                </Menu.Item>
+                <Menu.Item key="2">Meus Hábitos</Menu.Item>
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Grupos">
                 <Menu.Item
@@ -98,7 +91,7 @@ const Home = () => {
                   </Col>
                   <Col span={6}>
                     <Card title="Meus Hábitos" bordered={false}>
-                      Lugar do "botão" do ver hábito
+                      <MyHabbitCard />
                     </Card>
                   </Col>
                   <Col span={6}>
