@@ -6,8 +6,6 @@ import HabitForm from "../Addhabit";
 import { useState } from "react";
 import { AddGroupCard } from "../AddGroup";
 import { MyGroupCard } from "../MyGroups";
-import { EditGroupCard } from "../EditGroup";
-import { AddGoalCard } from "../AddGoal";
 import MyHabbitCard from "../MyHabbits";
 
 const { SubMenu } = Menu;
@@ -16,10 +14,15 @@ const { Header, Content, Sider } = Layout;
 const Home = () => {
   const [newHabit, setNewHabit] = useState(false);
   const [newGroup, setNewGroup] = useState(false);
-  const [myHabit, setMyHabit] = useState(false)
-  const [myGroups, setMyGroups] = useState(false)
+  const [myHabit, setMyHabit] = useState(false);
+  const [myGroups, setMyGroups] = useState(false);
 
-  if (newHabit === false && newGroup === false && myHabit === false && myGroups === false) {
+  if (
+    newHabit === false &&
+    newGroup === false &&
+    myHabit === false &&
+    myGroups === false
+  ) {
     return (
       <Layout>
         <Header className="header">
@@ -43,21 +46,23 @@ const Home = () => {
                   onClick={() => {
                     setNewHabit(true);
                     setNewGroup(false);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Hábito
                 </Menu.Item>
-                <Menu.Item 
-                key="2"
-                onClick={() => {
-                  setNewHabit(false);
-                  setNewGroup(false);
-                  setMyHabit(true)
-                  setMyGroups(false)
-                }}
-                >Meus Hábitos</Menu.Item>
+                <Menu.Item
+                  key="2"
+                  onClick={() => {
+                    setNewHabit(false);
+                    setNewGroup(false);
+                    setMyHabit(true);
+                    setMyGroups(false);
+                  }}
+                >
+                  Meus Hábitos
+                </Menu.Item>
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Grupos">
                 <Menu.Item
@@ -65,20 +70,23 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(true);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Grupo
                 </Menu.Item>
-                <Menu.Item key="6"
+                <Menu.Item
+                  key="6"
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(true)
-                    }}
-                >Meus Grupos</Menu.Item>
+                    setMyHabit(false);
+                    setMyGroups(true);
+                  }}
+                >
+                  Meus Grupos
+                </Menu.Item>
                 <Menu.Item key="7">Group 1</Menu.Item>
                 <Menu.Item key="8">Group 2</Menu.Item>
               </SubMenu>
@@ -104,8 +112,8 @@ const Home = () => {
                         onClick={() => {
                           setNewHabit(true);
                           setNewGroup(false);
-                          setMyHabit(false)
-                          setMyGroups(false)
+                          setMyHabit(false);
+                          setMyGroups(false);
                         }}
                       >
                         Criar Hábito
@@ -125,8 +133,8 @@ const Home = () => {
                         onClick={() => {
                           setNewHabit(false);
                           setNewGroup(true);
-                          setMyHabit(false)
-                          setMyGroups(false)
+                          setMyHabit(false);
+                          setMyGroups(false);
                         }}
                       >
                         Criar Grupo
@@ -135,14 +143,14 @@ const Home = () => {
                   </Col>
                   <Col span={6}>
                     <Card title="Gerenciar Grupos" bordered={false}>
-                    <Button
+                      <Button
                         variant="contained"
                         color="primary"
                         onClick={() => {
                           setNewHabit(false);
                           setNewGroup(false);
-                          setMyHabit(false)
-                          setMyGroups(true)
+                          setMyHabit(false);
+                          setMyGroups(true);
                         }}
                       >
                         Meus Grupos
@@ -176,13 +184,15 @@ const Home = () => {
               style={{ height: "100%", borderRight: 0 }}
             >
               <SubMenu key="sub1" icon={<UserOutlined />} title="Hábitos">
-                <Menu.Item key="1" 
-                onClick={() => {
-                    setNewHabit(true)
+                <Menu.Item
+                  key="1"
+                  onClick={() => {
+                    setNewHabit(true);
                     setNewGroup(false);
-                    setMyHabit(false)
-                    setMyGroups(false)
-                    }}>
+                    setMyHabit(false);
+                    setMyGroups(false);
+                  }}
+                >
                   Novo Hábito
                 </Menu.Item>
                 <Menu.Item
@@ -190,8 +200,8 @@ const Home = () => {
                   onClick={() => {
                     setNewHabit(false);
                     setNewGroup(false);
-                    setMyHabit(true)
-                    setMyGroups(false)
+                    setMyHabit(true);
+                    setMyGroups(false);
                   }}
                 >
                   Meus Hábitos
@@ -203,19 +213,23 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(true);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Grupo
                 </Menu.Item>
-                <Menu.Item key="6"
+                <Menu.Item
+                  key="6"
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(true)
-                    }}>Meus Grupos</Menu.Item>
+                    setMyHabit(false);
+                    setMyGroups(true);
+                  }}
+                >
+                  Meus Grupos
+                </Menu.Item>
                 <Menu.Item key="7">Group 1</Menu.Item>
                 <Menu.Item key="8">Group 2</Menu.Item>
               </SubMenu>
@@ -286,8 +300,8 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(true);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Hábito
@@ -297,8 +311,8 @@ const Home = () => {
                   onClick={() => {
                     setNewHabit(false);
                     setNewGroup(false);
-                    setMyHabit(true)
-                    setMyGroups(false)
+                    setMyHabit(true);
+                    setMyGroups(false);
                   }}
                 >
                   Meus Hábitos
@@ -310,20 +324,23 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(true);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Grupo
                 </Menu.Item>
-                <Menu.Item key="6"
+                <Menu.Item
+                  key="6"
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(true)
-                    }}
-                >Meus Grupos</Menu.Item>
+                    setMyHabit(false);
+                    setMyGroups(true);
+                  }}
+                >
+                  Meus Grupos
+                </Menu.Item>
                 <Menu.Item key="7">Group 1</Menu.Item>
                 <Menu.Item key="8">Group 2</Menu.Item>
               </SubMenu>
@@ -352,17 +369,6 @@ const Home = () => {
       </Col> */}
                   <Col span={6}>
                     <AddGroupCard />
-                  </Col>
-                  <Col span={10}>
-                    <MyGroupCard />
-                  </Col>
-                  <Col span={8}>
-                    <EditGroupCard />
-                  </Col>
-                </Row>
-                <Row gutter={16}>
-                  <Col span={6}>
-                    <AddGoalCard />
                   </Col>
                 </Row>
               </div>
@@ -397,8 +403,8 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(true);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Hábito
@@ -408,8 +414,8 @@ const Home = () => {
                   onClick={() => {
                     setNewHabit(false);
                     setNewGroup(false);
-                    setMyHabit(true)
-                    setMyGroups(false)
+                    setMyHabit(true);
+                    setMyGroups(false);
                   }}
                 >
                   Meus Hábitos
@@ -421,19 +427,23 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(true);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Grupo
                 </Menu.Item>
-                <Menu.Item key="6"
+                <Menu.Item
+                  key="6"
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(true)
-                    }}>Meus Grupos</Menu.Item>
+                    setMyHabit(false);
+                    setMyGroups(true);
+                  }}
+                >
+                  Meus Grupos
+                </Menu.Item>
                 <Menu.Item key="7">Group 1</Menu.Item>
                 <Menu.Item key="8">Group 2</Menu.Item>
               </SubMenu>
@@ -461,7 +471,7 @@ const Home = () => {
         </Card>
       </Col> */}
                   <Col span={6}>
-                  <MyHabbitCard />
+                    <MyHabbitCard />
                   </Col>
                   {/* <Col span={10}>
                     <MyGroupCard />
@@ -506,8 +516,8 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(true);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Hábito
@@ -517,8 +527,8 @@ const Home = () => {
                   onClick={() => {
                     setNewHabit(false);
                     setNewGroup(false);
-                    setMyHabit(false)
-                    setMyGroups(true)
+                    setMyHabit(false);
+                    setMyGroups(true);
                   }}
                 >
                   Meus Hábitos
@@ -530,19 +540,23 @@ const Home = () => {
                   onClick={() => {
                     setNewGroup(true);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(false)
+                    setMyHabit(false);
+                    setMyGroups(false);
                   }}
                 >
                   Novo Grupo
                 </Menu.Item>
-                <Menu.Item key="6"
+                <Menu.Item
+                  key="6"
                   onClick={() => {
                     setNewGroup(false);
                     setNewHabit(false);
-                    setMyHabit(false)
-                    setMyGroups(true)
-                    }}>Meus Grupos</Menu.Item>
+                    setMyHabit(false);
+                    setMyGroups(true);
+                  }}
+                >
+                  Meus Grupos
+                </Menu.Item>
                 <Menu.Item key="7">Group 1</Menu.Item>
                 <Menu.Item key="8">Group 2</Menu.Item>
               </SubMenu>
@@ -570,7 +584,7 @@ const Home = () => {
         </Card>
       </Col> */}
                   <Col span={6}>
-                  <MyGroupCard />
+                    <MyGroupCard />
                   </Col>
                   {/* <Col span={10}>
                     <MyGroupCard />
