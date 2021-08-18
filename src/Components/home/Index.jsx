@@ -144,7 +144,6 @@ if(newHabit === false && newGroup === false ) {
         </Menu>
       </Sider>
 
-      
       <Layout style={{ padding: '0 24px 24px' }}>
         
         <Content

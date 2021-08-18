@@ -7,6 +7,7 @@ import { useAuth } from "../../Providers/auth/Auth";
 export const MyHabbitCard = () => {
     const {findHabits} = useFindHabits();
     const {token} = useAuth();
+    
     console.log(findHabits)
 
     const handlerDelete = (id) => {
