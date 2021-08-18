@@ -1,7 +1,9 @@
 import { Layout, Menu} from 'antd';
-import { UserOutlined, LaptopOutlined} from '@ant-design/icons';
+import { UserOutlined, LaptopOutlined, ScheduleOutlined} from '@ant-design/icons';
 import { Card, Col, Row } from 'antd';
-import { Button } from '@material-ui/core';
+import { NavUp } from './style';
+import "./style.css"
+import { BottomNavigation, Button } from '@material-ui/core';
 import HabitForm from '../Addhabit';
 import { useState } from 'react';
 import { AddGroupCard } from '../AddGroup';
@@ -19,12 +21,12 @@ if(newHabit === false && newGroup === false ) {
    return(
 
     <Layout>
-    <Header className="header">
+    <Header style= {{background: "#F0F0F0", padding: "0", }} className="header">
       <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1" >User</Menu.Item>
-        <Menu.Item key="2">Calendar</Menu.Item>
-      </Menu>
+      <NavUp mode="horizontal" defaultSelectedKeys={['1']}>
+        <Menu.Item key="1" ><UserOutlined /></Menu.Item>
+        <Menu.Item key="2"> <ScheduleOutlined /> </Menu.Item>
+      </NavUp>
     </Header>
     <Layout>
       <Sider width={200} className="site-layout-background">
@@ -32,10 +34,11 @@ if(newHabit === false && newGroup === false ) {
           mode="inline"
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          style={{ height: '100%', borderRight: 0 }}
+          style={{ height: '100%', borderRight: 0}}
         >
           <SubMenu key="sub1" icon={<UserOutlined />} title="Hábitos">
-            <Menu.Item key="1" 
+            <Menu.Item 
+            key="1" 
             onClick={()=> {
               setNewHabit(true)
               setNewGroup(false)}}>Novo Hábito</Menu.Item>
@@ -53,7 +56,6 @@ if(newHabit === false && newGroup === false ) {
           </SubMenu>
         </Menu>
       </Sider>
-
       
       <Layout style={{ padding: '0 24px 24px' }}>
         

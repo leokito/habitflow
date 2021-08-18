@@ -1,0 +1,12 @@
+.logo{
+    background-image: url(../../img/Habitflow.png);
+    background-repeat: no-repeat;
+    width: 230px;
+    height: 60px;
+    margin-top: 1rem;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid  1px #184E77;
+}
